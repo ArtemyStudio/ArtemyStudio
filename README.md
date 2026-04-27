@@ -28,7 +28,7 @@ They are magic, but the ugly kind.
 
 ## stack
 
-languages:   Rust, C, C++, Assembly, Bash, Python
+languages:   Rust, C, C++, Assembly, Bash, Python \n
 systems:     Linux, Arch/Garuda, GRUB, x86_64
 editors:     Neovim, VS Code
 interests:   OSDev, Red Team, CLI tools, GameDev
