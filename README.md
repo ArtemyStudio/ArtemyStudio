@@ -35,14 +35,14 @@ They are magic, but the ugly kind.
   </tr>
   <tr>
     <td><b>systems</b></td>
-    <td>Linux, Arch/Garuda, GRUB, x86_64</td>
+    <td>Linux, Arch, x86_64</td>
   </tr>
   <tr>
     <td><b>editors</b></td>
-    <td>Neovim, VS Code</td>
+    <td>Neovim, VS Code, CLion</td>
   </tr>
   <tr>
     <td><b>interests</b></td>
-    <td>OSDev, Red Team, CLI tools, GameDev</td>
+    <td>OSDev, Systems Programming, CLI tools, GameDev</td>
   </tr>
 </table>
