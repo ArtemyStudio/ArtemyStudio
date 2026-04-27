@@ -1,6 +1,6 @@
 <div align="center">
 
-# Artemiy
+# Artemy
 
 ### low-level enjoyer · linux user
 
