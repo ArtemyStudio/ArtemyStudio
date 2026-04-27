@@ -28,7 +28,21 @@ They are magic, but the ugly kind.
 
 ## stack
 
-languages:   Rust, C, C++, Assembly, Bash, Python
-systems:     Linux, Arch/Garuda, GRUB, x86_64
-editors:     Neovim, VS Code
-interests:   OSDev, Red Team, CLI tools, GameDev
+<table>
+  <tr>
+    <td><b>languages</b></td>
+    <td>Rust, C, C++, Assembly, Bash, Python</td>
+  </tr>
+  <tr>
+    <td><b>systems</b></td>
+    <td>Linux, Arch/Garuda, GRUB, x86_64</td>
+  </tr>
+  <tr>
+    <td><b>editors</b></td>
+    <td>Neovim, VS Code</td>
+  </tr>
+  <tr>
+    <td><b>interests</b></td>
+    <td>OSDev, Red Team, CLI tools, GameDev</td>
+  </tr>
+</table>
