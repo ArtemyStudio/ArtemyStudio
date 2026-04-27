@@ -1,16 +1,34 @@
-## Hi there 👋
+<div align="center">
 
-<!--
-**ArtemyStudio/ArtemyStudio** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Dew / Artemiy
 
-Here are some ideas to get you started:
+### low-level enjoyer · linux user · future OSDev victim
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+</div>
+
+---
+
+## about
+
+I like building things close to the metal.
+
+Mostly interested in:
+
+- operating systems
+- Rust / C / C++
+- x86_64 assembly
+- Linux internals
+- cybersecurity
+- weird tools that should probably not exist
+
+I’m currently learning how computers really work instead of pretending that high-level abstractions are magic.  
+They are magic, but the ugly kind.
+
+---
+
+## stack
+
+languages:   Rust, C, C++, Assembly, Bash, Python
+systems:     Linux, Arch/Garuda, GRUB, x86_64
+editors:     Neovim, VS Code
+interests:   OSDev, Red Team, CLI tools, GameDev
