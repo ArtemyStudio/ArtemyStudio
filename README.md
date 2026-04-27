@@ -1,8 +1,8 @@
 <div align="center">
 
-# Dew / Artemiy
+# Artemiy
 
-### low-level enjoyer · linux user · future OSDev victim
+### low-level enjoyer · linux user
 
 </div>
 
