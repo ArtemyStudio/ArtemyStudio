@@ -2,7 +2,7 @@
 
 # Artemy
 
-### low-level enjoyer · linux user
+### low-level enjoyer · linux user (i use arch, btw)
 
 </div>
 
