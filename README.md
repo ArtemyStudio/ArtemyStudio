@@ -31,7 +31,7 @@ They are magic, but the ugly kind.
 <table>
   <tr>
     <td><b>languages</b></td>
-    <td>Rust, C, C++, Assembly, Bash, Python</td>
+    <td>Rust, C, C++, Assembly, Bash</td>
   </tr>
   <tr>
     <td><b>systems</b></td>
