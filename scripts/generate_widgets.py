@@ -6,7 +6,9 @@ import os
 import sys
 import urllib.error
 import urllib.request
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -15,7 +17,7 @@ USER = os.environ.get("GITHUB_USER", "ArtemyStudio")
 TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN", "")
 GRAPHQL = "https://api.github.com/graphql"
 
-EXCLUDE_LANGS = {"HTML", "CSS", "Makefile", "Roff", "Batchfile"}
+EXCLUDE_LANGS = set()
 EXCLUDE_REPOS = set()
 
 TOP_N = 5
@@ -96,6 +98,8 @@ def graphql(query, **variables):
             payload = json.loads(res.read())
     except urllib.error.HTTPError as e:
         sys.exit(f"error: GitHub returned {e.code}: {e.read().decode()[:300]}")
+    except urllib.error.URLError as e:
+        sys.exit(f"error: network problem reaching GitHub: {e.reason}")
 
     if payload.get("errors"):
         msgs = "; ".join(e.get("message", "?") for e in payload["errors"])
@@ -118,11 +122,20 @@ def fetch_repos():
         after = page["pageInfo"]["endCursor"]
 
 
+def fetch_contrib(since):
+    """Separate function so it can run on its own thread alongside fetch_repos."""
+    return graphql(CONTRIB_QUERY, login=USER, **{"from": since})["user"]
+
+
 def collect():
     year = datetime.now(timezone.utc).year
     since = f"{year}-01-01T00:00:00Z"
 
-    repos = [r for r in fetch_repos() if r["name"] not in EXCLUDE_REPOS]
+    with ThreadPoolExecutor(max_workers=2) as pool:
+        repos_future = pool.submit(fetch_repos)
+        contrib_future = pool.submit(fetch_contrib, since)
+        repos = [r for r in repos_future.result() if r["name"] not in EXCLUDE_REPOS]
+        c = contrib_future.result()
 
     langs = {}
     for repo in repos:
@@ -132,7 +145,6 @@ def collect():
                 continue
             langs[name] = langs.get(name, 0) + edge["size"]
 
-    c = graphql(CONTRIB_QUERY, login=USER, **{"from": since})["user"]
     contrib = c["contributionsCollection"]
 
     data = {
@@ -157,6 +169,8 @@ def collect():
     )
     return data
 
+
+@lru_cache(maxsize=None)
 def b64_font(weight):
     p = REPO_ROOT / "scripts" / "fonts" / f"JetBrainsMono-{weight}.subset.woff2"
     return base64.b64encode(p.read_bytes()).decode()
